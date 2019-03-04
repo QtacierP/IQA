@@ -7,7 +7,6 @@ from keras.preprocessing.image import ImageDataGenerator
 def get_tuned_variables(CHECKPOINT_EXCLUDE_SCOPES):
     exclusions = [scope.strip() for scope in CHECKPOINT_EXCLUDE_SCOPES.split(',')]
     variables_to_restore = []
-    # 枚举inception-v3模型中所有的参数，然后判断是否需要从加载列表中移除。
     for var in slim.get_model_variables():
         excluded = False
         for exclusion in exclusions:
