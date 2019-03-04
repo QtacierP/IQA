@@ -1,7 +1,7 @@
 Just a simple transfer learning for Retinal images IQA
 ======================================================
 
-![avatar](test.png)
+![avatar](./test.png)
 
 > Dataset is based on DRIMDB, model is Inception pre_trained on ImageNet 
 
