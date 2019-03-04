@@ -1,7 +1,7 @@
 from option import args
 import os
 from data import DataLoader
-from model import model
+from model import Model
 import utils
 os.environ["CUDA_VISIBLE_DEVICES"] = args.GPU
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     val_imgs = utils.dataset_normalized(val_imgs)
     test_imgs, test_labels = data_loader.get_test()
     #train_imgs = utils.argumentation(train_imgs)
-    model = model(args)
+    model = Model(args)
     model.train(train_imgs, train_labels, val_imgs, val_labels)
     model.test(test_imgs, test_labels)
 

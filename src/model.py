@@ -19,18 +19,15 @@ def get_tuned_variables(CHECKPOINT_EXCLUDE_SCOPES):
     return variables_to_restore
 
 
-# 获取所有需要训练的变量列表。
 def get_trainable_variables(TRAINABLE_SCOPES):
     scopes = [scope.strip() for scope in TRAINABLE_SCOPES.split(',')]
     variables_to_trian = []
-
-    # 枚举所有需要训练的参数前缀，并通过这些前缀找到所有需要训练的参数。
     for scope in scopes:
         variables = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope)
         variables_to_trian.extend(variables)
     return variables_to_trian
 
-class model():
+class Model():
     def __init__(self, args):
         self.ckpt = args.pre_train
         self.data_dir = args.data_path + '/hdf5'
@@ -57,7 +54,7 @@ class model():
                 self.logits, _ = inception_v3.inception_v3(self.images,
                                                       num_classes=self.class_num,
                                                       is_training=True)
-            trainable_variables = get_trainable_variables('InceptionV3/Logits,InceptionV3/AuxLogits')
+            #trainable_variables = get_trainable_variables('InceptionV3/Logits,InceptionV3/AuxLogits')
             print('Loading tuned variables from %s' % self.ckpt)
 
     def train(self, training_images, training_labels, validation_images, validation_labels):
