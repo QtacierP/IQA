@@ -3,7 +3,7 @@ Just a simple transfer learning for Retinal images IQA
 
 > Dataset is based DRIMDB, model is Inception pre_trained on ImageNet 
 
-- Dataset can be downloaded [Here] https://www.researchgate.net/profile/Ugur_Sevik/publication/282641760_DRIMDB_Diabetic_Retinopathy_Images_Database_Database_for_Quality_Testing_of_Retinal_Images/data/5614ce9408aed47facee940d/DRIMDB.rar)
+- Dataset can be downloaded [Here](https://www.researchgate.net/profile/Ugur_Sevik/publication/282641760_DRIMDB_Diabetic_Retinopathy_Images_Database_Database_for_Quality_Testing_of_Retinal_Images/data/5614ce9408aed47facee940d/DRIMDB.rar)
 
 - Put dataset in the ./data/DRIMDB
 
