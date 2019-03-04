@@ -7,7 +7,6 @@ from keras.preprocessing.image import ImageDataGenerator
 def get_tuned_variables(CHECKPOINT_EXCLUDE_SCOPES):
     exclusions = [scope.strip() for scope in CHECKPOINT_EXCLUDE_SCOPES.split(',')]
     variables_to_restore = []
-    # 枚举inception-v3模型中所有的参数，然后判断是否需要从加载列表中移除。
     for var in slim.get_model_variables():
         excluded = False
         for exclusion in exclusions:
@@ -19,12 +18,11 @@ def get_tuned_variables(CHECKPOINT_EXCLUDE_SCOPES):
     return variables_to_restore
 
 
-# 获取所有需要训练的变量列表。
+
 def get_trainable_variables(TRAINABLE_SCOPES):
     scopes = [scope.strip() for scope in TRAINABLE_SCOPES.split(',')]
     variables_to_trian = []
-
-    # 枚举所有需要训练的参数前缀，并通过这些前缀找到所有需要训练的参数。
+    
     for scope in scopes:
         variables = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope)
         variables_to_trian.extend(variables)
