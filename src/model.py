@@ -52,7 +52,7 @@ class Model():
             with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
                 self.logits, _ = inception_v3.inception_v3(self.images,
                                                       num_classes=self.class_num,
-                                                      is_training=True)
+                                                      is_training=False)
             #trainable_variables = get_trainable_variables('InceptionV3/Logits,InceptionV3/AuxLogits')
             print('Loading tuned variables from %s' % self.ckpt)
 
